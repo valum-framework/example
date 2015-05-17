@@ -14,5 +14,4 @@ def build(bld):
         target    = 'app',
         source    = 'src/app.vala',
         uselib    = ['VALUM'],
-        vapi_dirs = ['vapi'],
-        stlib     = ['valum-0.1'])
+        vapi_dirs = ['vapi'])

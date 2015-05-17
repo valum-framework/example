@@ -8,4 +8,4 @@ app.get("", (req, res) => {
     writer.put_string ("Hello world!");
 });
 
-new Server (app, 3003).run ();
+new Server (app).run ({"app", "--port", "3003"});
