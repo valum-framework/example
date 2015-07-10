@@ -13,7 +13,7 @@ def configure(cfg):
 def build(bld):
     bld.load('vala')
     bld.program(
-        packages = ['valum-0.2'],
+        packages = ['valum'],
         target    = 'app',
         source    = 'src/app.vala',
         uselib    = ['VALUM'],

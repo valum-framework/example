@@ -7,4 +7,4 @@ app.get("", (req, res) => {
     res.body.write ("Hello world!".data);
 });
 
-new Server (app.handle).run ();
+new Server (app.handle).run ({"app", "--all"});
