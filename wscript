@@ -8,7 +8,7 @@ def options(cfg):
 
 def configure(cfg):
     cfg.load('compiler_c vala')
-    cfg.check_cfg(package='valum-0.2', uselib_store='VALUM', args='--libs --cflags')
+    cfg.check_cfg(package='valum', uselib_store='VALUM', args='--libs --cflags')
 
 def build(bld):
     bld.load('vala')
