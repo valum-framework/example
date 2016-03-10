@@ -9,9 +9,9 @@ def configure(cfg):
     cfg.check_cfg(package='vsgi-http', uselib_store='VSGI_HTTP', args='--libs --cflags')
 
 def build(bld):
-    bld.load('vala')
+    bld.load('compiler_c vala')
     bld.program(
         packages = 'valum vsgi-http',
-        target    = 'app',
-        source    = 'src/app.vala',
-        use       = 'VALUM VSGI_HTTP')
+        target   = 'app',
+        source   = 'src/app.vala',
+        use      = 'VALUM VSGI_HTTP')
