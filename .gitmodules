@@ -1,0 +1,3 @@
+[submodule "subprojects/valum"]
+	path = subprojects/valum
+	url = https://github.com/valum-framework/valum.git

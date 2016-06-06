@@ -1,5 +1,5 @@
 using Valum;
-using VSGI.HTTP;
+using VSGI;
 
 var app = new Router ();
 
@@ -8,4 +8,4 @@ app.get ("/", (req, res) => {
 	return res.expand_utf8 ("Hello world!");
 });
 
-new Server ("org.valum.Example", app.handle).run ({"app", "--all"});
+Server.new_with_application ("http", "org.valum.Example", app.handle).run ({"app", "--all"});
