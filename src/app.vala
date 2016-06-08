@@ -1,11 +1,19 @@
 using Valum;
+using Valum.ContentNegotiation;
 using VSGI;
 
-var app = new Router ();
+public int main (string[] args) {
+	var app = new Router ();
 
-app.get ("/", (req, res) => {
-	res.headers.set_content_type ("text/html", null);
-	return res.expand_utf8 ("Hello world!");
-});
+	app.use (basic ());
 
-Server.new_with_application ("http", "org.valum.Example", app.handle).run ({"app", "--all"});
+	app.use (accept ("text/plain", (req, res, next) => {
+		return next ();
+	}));
+
+	app.get ("/", (req, res) => {
+		return res.expand_utf8 ("Hello world!");
+	});
+
+	return Server.new_with_application ("http", "org.valum.Example", app.handle).run (args);
+}
