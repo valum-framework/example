@@ -7,13 +7,12 @@ public int main (string[] args) {
 
 	app.use (basic ());
 
-	app.use (accept ("text/plain", (req, res, next) => {
-		return next ();
-	}));
+	app.use (accept ("text/plain"));
+	app.use (accept_charset ("UTF-8"));
 
 	app.get ("/", (req, res) => {
 		return res.expand_utf8 ("Hello world!");
 	});
 
-	return Server.new_with_application ("http", "org.valum.Example", app.handle).run (args);
+	return Server.@new ("http", handler: app).run (args);
 }
