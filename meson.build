@@ -1,22 +1,11 @@
 project('example', 'c', 'vala')
 
-add_global_arguments(['-Wno-deprecated-declarations',
-                      '-Wno-discarded-qualifiers',
-                      '-Wno-implicit-function-declaration',
-                      '-Wno-incompatible-pointer-types',
-                      '-Wno-int-to-pointer-cast',
-                      '-Wno-pointer-sign',
-                      '-Wno-unused'], language: 'c')
-
-add_global_arguments(['--enable-deprecated',
-                      '--enable-experimental'], language: 'vala')
-
-glib = dependency('glib-2.0')
-gio = dependency('glib-2.0')
-gobject = dependency('glib-2.0')
-soup = dependency('libsoup-2.4')
-vsgi = subproject('valum').get_variable('vsgi')
-valum = subproject('valum').get_variable('valum')
+glib_dep = dependency('glib-2.0')
+gio_dep = dependency('glib-2.0')
+gobject_dep = dependency('glib-2.0')
+soup_dep = dependency('libsoup-2.4')
+vsgi_dep = dependency('vsgi-0.3', fallback: ['valum', 'vsgi'])
+valum_dep = dependency('valum-0.3', fallback: ['valum', 'valum'])
 
 executable('app', 'src/app.vala',
-           dependencies: [glib, gio, gobject, soup, vsgi, valum])
+           dependencies: [glib_dep, gio_dep, gobject_dep, soup_dep, vsgi_dep, valum_dep])
