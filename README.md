@@ -23,7 +23,7 @@ For more horsepower, set the ``--forks`` flag to run multiple forks of the
 example.
 
 ```bash
-./app --forks=$(nproc)
+./app --forks=$(nproc --ignore=1)
 ```
 
 For more details about supported options, set the ``--help`` flag.
